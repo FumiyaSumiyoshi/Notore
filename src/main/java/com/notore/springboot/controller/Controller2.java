@@ -1,11 +1,10 @@
-//package com.tuyano.springboot;
+//package com.notore.springboot.controller;
 //
 //import org.springframework.stereotype.Controller;
 //import org.springframework.web.bind.annotation.RequestMapping;
 //
-//
-//@Controller//「Rest」(Representational State Transfer)専用のコントローラ
-//public class HelloController4 {
+//@Controller
+//public class Controller2 {
 //	
 //	@RequestMapping("/")
 //	public String index () {

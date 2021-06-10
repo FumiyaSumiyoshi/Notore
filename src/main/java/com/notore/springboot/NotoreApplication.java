@@ -1,13 +1,13 @@
-package com.tuyano.springboot;
+package com.notore.springboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MyBootApp2Application2 {
+public class NotoreApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MyBootApp2Application2.class, args);
+		SpringApplication.run(NotoreApplication.class, args);
 	}
 
 }
