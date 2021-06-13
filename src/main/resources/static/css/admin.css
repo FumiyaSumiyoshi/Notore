@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+/* div.contants {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100vh;
+    height: -webkit-fill-available;
+    max-height: 100vh;
+    overflow-x: auto;
+    overflow-y: hidden;
+} */
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    padding-top: 3.5rem;
+}
+
+div.main {
+    height: 100%;
+}
+
+div.side {
+    height: 100%;
+    width: 280px;
+}
