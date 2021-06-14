@@ -9,7 +9,7 @@ public class FrontController {
 	@RequestMapping("/")
 	public String index () {
 		
-		return "index";
+		return "front/top_page";
 		
 	}
 	

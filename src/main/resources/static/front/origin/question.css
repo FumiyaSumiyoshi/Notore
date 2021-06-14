@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    background-image: url(origin/OIP.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.title1 {
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 60px;
+    color: blue;
+}
+
+.title2 {
+    margin-top: 200px;
+}
+
+.box_1 {
+    display: inline-block;
+            vertical-align: middle;
+    color: #FFF;
+    width:100px;
+    height:100px;
+}
+ 
+.box_2{
+    display: inline-block;
+            vertical-align: middle;
+    color: #FFF;
+    width:100px;
+    height:100px;
+}
+ 
+.box_3{
+    display: inline-block;
+            vertical-align: middle;
+    color: #FFF;
+    width:100px;
+    height:100px;
+}
