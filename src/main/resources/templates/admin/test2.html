@@ -1,5 +1,5 @@
-
-    <div th:fragment="questionlist">
+<div layout:decorator="layout/layout">
+    <th:block layout:fragment="layout-content">
         <h1>< 検索 ></h1>
         <select name="カテゴリ">
             <p>カテゴリ</p>
@@ -34,7 +34,5 @@
             <td>回答形式</td>
             </tr>
         </table>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-    </div>
+    </th:block>
+</div>

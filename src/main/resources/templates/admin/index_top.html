@@ -1,78 +1,38 @@
-
-<!doctype html>
-<html lang="ja" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <link href="./admin/lib/css/bootstrap.css" rel="stylesheet">
-        <link href="./admin/css/admin.css" rel="stylesheet">
-        <link href="./admin/origin/wide.css" rel="stylesheet">
-        <title></title>
-    </head>
-    <body>
-        <div class="header navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">毎日脳トレ</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <ul class="nav justify-content-end">
-                    <button class="btn btn-outline-success" type="submit">ログアウト</button>
-                </ul>
-            </div>
-        </div>
-        <div class="main">
-            <div class="side d-flex flex-column flex-shrink-0 p-3 bg-light" id="tabcontrol">
-                <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item">
-                      <a href="#tabpage1" class="nav-link active" aria-current="page">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-                        問題一覧
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#tabpage2" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-                        カテゴリ一覧
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#tabpage3" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                        レベル一覧
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#tabpage4" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-                        問題の登録
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#tabpage5" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-                        ユーザー管理
-                      </a>
-                    </li>
-                  </ul>
-            </div>
-            <div class="contants"></div>
-        </div>
-
-       
-       <div class="box_2" id="tabbody">
-          <div id="tabpage1"></div>
-          <div id="tabpage2"><iframe src="questionlist2.html" width="800" height="600"></iframe></div>
-          <div id="tabpage3"><iframe src="questionlist3.html" width="800" height="600"></iframe></div>
-          <div id="tabpage4"><iframe src="questionlist4.html" width="800" height="600"></iframe></div>
-          <div id="tabpage5"><iframe src="questionlist5.html" width="800" height="600"></iframe></div>
-       </div>
-       
-
-        <script src="./admin/lib/js/bootstrap.js"></script>
-        <script src="./admin/origin/change.js"></script>
-    </body>
-</html>
-
--->
+<div layout:decorator="layout/layout">
+    <th:block layout:fragment="layout-content">
+        <h1>< 検索 ></h1>
+        <select name="カテゴリ">
+            <p>カテゴリ</p>
+            <option>国語</option>
+            <option>数学</option>
+            <option>社会</option>
+            <option>理科</option>
+            <option>英語</option>
+            <option>雑学</option>
+        </select>
+        <select name="レベル">
+            <p>レベル</p>
+            <option>やさしい</option>
+            <option>ふつう</option>
+            <option>むずかしい</option>
+        </select>
+        <select name="回答形式">
+            <p>回答形式</p>
+            <option>単一入力</option>
+            <option>複数入力</option>
+            <option>単一選択</option>
+            <option>複数選択</option>
+            
+        </select>
+        <h1>問題一覧</h1>
+        <table class="table" border="1">
+            <tr>
+            <td>最終更新日時</td>
+            <td>カテゴリ</td>
+            <td>レベル</td>
+            <td>配点</td>
+            <td>回答形式</td>
+            </tr>
+        </table>
+    </th:block>
+</div>
