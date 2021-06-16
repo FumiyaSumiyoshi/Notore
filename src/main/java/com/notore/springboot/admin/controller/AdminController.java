@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.notore.springboot.admin.service.AdministratorService;
+import com.notore.springboot.admin.service.AdminService;
 
 @Controller
 public class AdminController {
@@ -13,7 +13,7 @@ public class AdminController {
 	 * サービスクラス(AdministratorService)の呼び出し
 	 */
 	@Autowired
-	AdministratorService service;
+	AdminService service;
 	
 	//////////////////////////////////////////////////////
 	
