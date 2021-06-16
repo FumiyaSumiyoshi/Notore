@@ -1,4 +1,4 @@
-package com.notore.springboot.admin.data;
+package com.notore.springboot.admin.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,8 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -24,8 +22,8 @@ public class AdministratorData {
 	
 	@Column(nullable = false)
 	@NotEmpty
-	@Min(0)
-	@Max(10)
+//	@Min(0)
+//	@Max(10)
 	private String login_id;
 	
 	@GeneratedValue(strategy = GenerationType.AUTO)
