@@ -6,11 +6,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AdminController {
 	
-	@RequestMapping("/admin")
-	public String index () {
+	@RequestMapping(value = "/admin")
+	public String index() {
 		
-		return "admin/index_top";
+		return "admin/questionlist";
 		
+	}
+	
+
+	@RequestMapping(value = "/admin2")
+	public String index2() {
+		
+		return "admin/categorylist";
+	}
+	
+	@RequestMapping(value = "/admin3")
+	public String index3() {
+		
+		return "admin/levellist";
+	}
+	
+	@RequestMapping(value = "/admin4")
+	public String index4() {
+		
+		return "admin/setquestion";
+	}
+	
+	@RequestMapping(value = "/admin5")
+	public String index5() {
+		
+		return "admin/user";
 	}
 	
 }

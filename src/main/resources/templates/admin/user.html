@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>毎日脳トレ</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="origin/table.css">
-    </head>
-    <body>
+<div layout:decorator="layout/layout">
+    <th:block layout:fragment="layout-content">
         <h1>< 検索 ></h1>
         <select name="カテゴリ">
             <p>カテゴリ</p>
@@ -32,7 +24,7 @@
             <option>複数選択</option>
             
         </select>
-        <h1>問題の登録</h1>
+        <h1>ユーザー管理</h1>
         <table class="table" border="1">
             <tr>
             <td>最終更新日時</td>
@@ -42,8 +34,6 @@
             <td>回答形式</td>
             </tr>
         </table>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-    </body>
-</html>
+	</th:block>
+</div>
+        
