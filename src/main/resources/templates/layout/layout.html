@@ -1,0 +1,27 @@
+<!doctype html>
+<html 
+xmlns         = "http://www.w3.org/1999/xhtml"
+xmlns:th      = "http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <link href="./admin/lib/css/bootstrap.css" rel="stylesheet">
+        <link href="./admin/css/admin.css" rel="stylesheet">
+        <link href="./admin/origin/forbody.css" rel="stylesheet">
+        <title></title>
+    </head>
+    <body>
+    	<div th:replace="layout/header :: header">&nbsp;</div>
+    	<div class="main">
+			<div th:replace="layout/navi :: navi">&nbsp;</div>
+			<div class="contants">
+				<th:block layout:fragment="layout-content">
+				    <p>Default layout content</p>
+				</th:block>
+			</div>
+		</div>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+/* body {
+    margin: 0;
+    background-image: url(origin/OIP.jpg);
+    background-position: center;
+    background-size: cover;
+} */
+
+.title1 {
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 120px;
+    color: blue;
+}
+
+.title2 {
+    margin-top: 200px;
+}
+
+.title3 {
+    margin-top: 50px;
+}
+.questionN {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+}

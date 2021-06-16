@@ -1,0 +1,39 @@
+<div layout:decorator="layout/layout">
+    <th:block layout:fragment="layout-content">
+        <h1>< 検索 ></h1>
+        <select name="カテゴリ">
+            <p>カテゴリ</p>
+            <option>国語</option>
+            <option>数学</option>
+            <option>社会</option>
+            <option>理科</option>
+            <option>英語</option>
+            <option>雑学</option>
+        </select>
+        <select name="レベル">
+            <p>レベル</p>
+            <option>やさしい</option>
+            <option>ふつう</option>
+            <option>むずかしい</option>
+        </select>
+        <select name="回答形式">
+            <p>回答形式</p>
+            <option>単一入力</option>
+            <option>複数入力</option>
+            <option>単一選択</option>
+            <option>複数選択</option>
+            
+        </select>
+        <h1>問題の登録</h1>
+        <table class="table" border="1">
+            <tr>
+            <td>最終更新日時</td>
+            <td>カテゴリ</td>
+            <td>レベル</td>
+            <td>配点</td>
+            <td>回答形式</td>
+            </tr>
+        </table>
+	</th:block>
+</div>
+        
