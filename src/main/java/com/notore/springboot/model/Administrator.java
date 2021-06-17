@@ -1,4 +1,4 @@
-package com.notore.springboot.admin.model;
+package com.notore.springboot.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

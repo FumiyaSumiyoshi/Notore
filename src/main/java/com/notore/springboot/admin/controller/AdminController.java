@@ -15,8 +15,12 @@ public class AdminController {
 	@Autowired
 	AdminService service;
 	
-	//////////////////////////////////////////////////////
 	
+	/**
+	 * 問題一覧(TOP)画面の呼び出し
+	 * 
+	 * @return
+	 */
 	@RequestMapping(value = "/admin")
 	public String index() {
 		
@@ -24,26 +28,45 @@ public class AdminController {
 		
 	}
 	
-
-	@RequestMapping(value = "/admin2")
+	/**
+	 * カテゴリ一覧画面の呼び出し
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/admin.category")
 	public String index2() {
 		
 		return "admin/categorylist";
 	}
 	
-	@RequestMapping(value = "/admin3")
+	/**
+	 * レベル一覧画面の呼び出し
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/admin.level")
 	public String index3() {
 		
 		return "admin/levellist";
 	}
 	
-	@RequestMapping(value = "/admin4")
+	/**
+	 * 問題の登録画面の呼び出し
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/admin.setquestion")
 	public String index4() {
 		
 		return "admin/setquestion";
 	}
 	
-	@RequestMapping(value = "/admin5")
+	/**
+	 * ユーザー管理画面の呼び出し
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/admin.user")
 	public String index5() {
 		
 		return "admin/user";
