@@ -6,49 +6,51 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 
 @Entity
-@Table(name = "administrator")
+@Table(name="administrator")
 public class Administrator {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column
+	@Column(name="id")
 //	@NotNull
-	private long id;
+	private Long id;
 	
-//	@Column(nullable = false)
+	@Column(name="login_id")
 //	@NotEmpty
-//	@Min(0)
-//	@Max(10)
-	private String login_id;
+	@Min(0)
+	@Max(10)
+	public String login_id;
+	
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="creater_id")
+//	@NotNull
+	public Long creater_id;
+	
+	@Column
+//	@NotEmpty
+	public String create_date;
 	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column
 //	@NotNull
-	private int creater_id;
+	public Long updater_id;
 	
 	@Column
 //	@NotEmpty
-	private String create_date;
+	public String update_date;
 	
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column
-//	@NotNull
-	private int updater_id;
-	
-	@Column
-//	@NotEmpty
-	private String update_date;
-	
-	public long getId() {
+	public Long getId() {
 		
 		return id;
 		
 	}
 	
-	public void setId(long id) {
+	public void setId(Long id) {
 	
 		this.id = id;
 		
@@ -66,13 +68,13 @@ public class Administrator {
 		
 	}
 	
-	public int getCreaterId() {
+	public Long getCreaterId() {
 		
 		return creater_id;
 		
 	}
 	
-	public void setCreaterId(int creater_id) {
+	public void setCreaterId(Long creater_id) {
 	
 		this.creater_id = creater_id;
 		
@@ -90,13 +92,13 @@ public class Administrator {
 		
 	}
 	
-	public int getUpdaterId() {
+	public Long getUpdaterId() {
 		
 		return updater_id;
 		
 	}
 	
-	public void setUpdaterId(int updater_id) {
+	public void setUpdaterId(Long updater_id) {
 	
 		this.updater_id = updater_id;
 		

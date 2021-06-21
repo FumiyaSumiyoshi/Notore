@@ -2,39 +2,31 @@ package com.notore.springboot.admin.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.notore.springboot.admin.service.AdminService;
 
 @Controller
 public class AdminController {
 	
+	
 	@Autowired
 	AdminService adminService;
 	
-	@RequestMapping("/")
-	public ModelAndView index(ModelAndView mav) {
-		
-		mav.setViewName("index");
-		mav.addObject("msg", "this is sample content.");
-		mav.addObject("data", adminService.findAll());
-		return mav;
-		
-	}
+	/**
+	 * 問題一覧(TOP)画面の呼び出し
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+    public String index(Model model) {
+        model.addAttribute("adminlist", adminService.findAll());
+        return "admin/questionlist";
+    }
 	
-//	/**
-//	 * 問題一覧(TOP)画面の呼び出し
-//	 * 
-//	 * @return
-//	 */
-//	@RequestMapping(value = "/admin")
-//	public String index() {
-//		
-//		return "admin/questionlist";
-//		
-//	}
-//	
+	
 //	/**
 //	 * カテゴリ一覧画面の呼び出し
 //	 * 
