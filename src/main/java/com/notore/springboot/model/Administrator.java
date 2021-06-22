@@ -11,6 +11,7 @@ import javax.validation.constraints.Min;
 
 
 @Entity
+//@Table(name="administrator", catalog="notore", schema="notore")
 @Table(name="administrator")
 public class Administrator {
 	

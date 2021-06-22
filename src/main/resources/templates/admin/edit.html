@@ -1,4 +1,4 @@
-<!--  
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -18,15 +18,13 @@
 	<table>
 	<form method="post"action="/edit" th:object="${formModel}">
 	<input type="hidden" name = "id" th:value = "*{id}" />
-	<tr><td><label for="name">名前</label></td>
-		<td><input type="text" name = "name" th:value = "*{name}" /></td></tr>
-	<tr><td><label for="age">年齢</label></td>
-		<td><input type="text" name = "age" th:value = "*{age}" /></td></tr>
-	<tr><td><label for="mail">メール</label></td>
-		<td><input type="text" name = "mail" th:value = "*{mail}" /></td></tr>
-	<tr><td><label for="memo">メモ</label></td>
-		<td><textarea name = "memo" th:text="*{memo}"
-				cols = "20" rows = "5"></textarea></td></tr>
+	
+	<tr><td><label for="login_id">ログインID</label></td><td><input type="text" name="login_id" th:value="*{login_id}" /></td></tr>
+    <tr><td><label for="creater_id">作成者ID</label></td><td><input type="text" name="creater_id" th:value="*{crater_id}" /></td></tr>
+    <tr><td><label for="create_date">作成者日時</label></td><td><input type="text" name="create_date" th:value="*{crate_date}" /></td></tr>
+    <tr><td><label for="updater_id">更新者ID</label></td><td><input type="text" name="updater_id" th:value="*{updater_id}" /></td></tr>
+    <tr><td><label for="update_date">更新日時</label></td><td><input type="text" name="update_date" th:value="*{update_date}" /></td></tr>
+				
 	<tr><td></td><td><input type = "submit" /></td></tr>
 	</form>
 	</table>

@@ -1,6 +1,6 @@
 package com.notore.springboot.admin.service;
 
-import java.util.List;
+//import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,19 +15,24 @@ public class AdminService {
 	@Autowired
     AdministratorRepository adminRepository;
 	
-//	public Iterable<Administrator> findAll() {
+//	public List<Administrator> findAll() {
 //		
-//		Iterable<Administrator> list = adminRepository.findAll();
+//		List<Administrator> adminlist = adminRepository.findAll();
 //		
-//		return list;
+//		return adminlist;
 //		
 //	}
 	
-	public List<Administrator> findAll() {
+	public Iterable<Administrator> findAll() {
 		
-		List<Administrator> adminlist = adminRepository.findAll();
+		Iterable<Administrator> list = adminRepository.findAll();
 		
-		return adminlist;
+		return list;
+		
+	}
+
+	public void saveAndFlush(Administrator administrator) {
+		
 		
 	}
 	
