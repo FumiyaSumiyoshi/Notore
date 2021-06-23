@@ -30,10 +30,16 @@ public class AdminService {
 		return list;
 		
 	}
-
-	public void saveAndFlush(Administrator administrator) {
-		
-		
-	}
 	
+//	public void saveAndFlush(Administrator administrator) {
+//		
+//		
+//	}
+//
+//	public Administrator findById(long id) {
+//		
+//		return null;
+//		
+//	}
+//	
 }

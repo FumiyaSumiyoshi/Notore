@@ -11,12 +11,12 @@ import javax.validation.constraints.Min;
 
 
 @Entity
-//@Table(name="administrator", catalog="notore", schema="notore")
-@Table(name="administrator")
+@Table(name="administrator", catalog="notore", schema="notore")
 public class Administrator {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 //	@NotNull
 	private Long id;
