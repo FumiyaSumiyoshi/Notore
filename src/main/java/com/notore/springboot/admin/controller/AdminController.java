@@ -32,9 +32,9 @@ public class AdminController {
 	public String index(Model model) {
 		
 		model.addAttribute("adminlist", service.findAll());
-        return "admin/administrator/list";
+		return "admin/administrator/list";
 		
-    }
+	}
 	
 	
 //	/**
