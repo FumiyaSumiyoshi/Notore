@@ -14,7 +14,7 @@
 </head>
 <body>
         <table>
-        	<form method="post" action="create" th:object="${formModel}">
+        	<form method="post" action="save" th:object="${formModel}">
             <tr><td><label for="loginId">ログインID</label></td><td><input type="text" name="loginId" th:value="*{loginId}"/></td></tr>
             <tr><td></td><td><input type="submit" /></td></tr>
             </form>

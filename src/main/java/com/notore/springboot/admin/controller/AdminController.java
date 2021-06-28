@@ -29,9 +29,11 @@ public class AdminController {
 	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.GET)
-    public String index(Model model) {
+	public String index(Model model) {
+		
         model.addAttribute("adminlist", service.findAll());
         return "admin/administrator/list";
+        
     }
 	
 	
@@ -95,7 +97,7 @@ public class AdminController {
 		
 	}
 	
-	@RequestMapping(value = "create", method = RequestMethod.POST)
+	@RequestMapping(value = "save", method = RequestMethod.POST)
 	@Transactional(readOnly=false)
 	public ModelAndView save(@ModelAttribute("formModel") Administrator administrator, ModelAndView mav) {
 		
