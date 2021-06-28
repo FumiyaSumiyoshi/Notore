@@ -31,9 +31,9 @@ public class AdminController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(Model model) {
 		
-        model.addAttribute("adminlist", service.findAll());
+		model.addAttribute("adminlist", service.findAll());
         return "admin/administrator/list";
-        
+		
     }
 	
 	
