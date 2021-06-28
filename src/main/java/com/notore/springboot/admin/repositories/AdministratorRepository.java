@@ -11,6 +11,6 @@ import com.notore.springboot.model.Administrator;
 @Repository
 public interface AdministratorRepository extends JpaRepository<Administrator, Long> {
 	
-	public Optional<Administrator> findById(Long long_id);
+	public Optional<Administrator> findById(Long name);
 	
 }

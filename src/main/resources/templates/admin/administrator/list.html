@@ -25,9 +25,9 @@
             <option>複数選択</option>
             
         </select>
-        <h1>問題一覧</h1>
+        <h1>ユーザー管理</h1>
         <div>
-        	<button class="" id="create_btn">新規作成</button>
+        	<button id="create_btn">新規作成</button>
         </div>
         <table class="table" border="1">
             <tr>
@@ -41,15 +41,20 @@
             </tr>
         </table>
         
-         <h1 th:text="${title}"></h1>
         <table>
             <tr th:each="admin : ${adminlist}" th:object="${admin}">
                 <td th:text="*{id}"></td>
-                <td th:text="*{login_id}"></td>
-                <td th:text="*{creater_id}"></td>
-                <td th:text="*{create_date}"></td>
-                <td th:text="*{updater_id}"></td>
-                <td th:text="*{update_date}"></td>
+                <td th:text="*{loginId}"></td>
+                <td th:text="*{createrId}"></td>
+                <td th:text="*{createDate}"></td>
+                <td th:text="*{updaterId}"></td>
+                <td th:text="*{updateDate}"></td>
+                <td>
+                	<a class="button" href="administrator/edit.html" th:href="@{administrator/edit/__*{id}__}">編集</a>
+            	</td>
+                <td>
+                	<a class="button" href="administrator/delete.html" th:href="@{administrator/delete/__*{id}__}">削除</a>
+            	</td>
             </tr>
         </table>
     </th:block>

@@ -1,4 +1,3 @@
-<!-- 
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -14,15 +13,11 @@
 <body>
 	<h1 th:text="${title}">Edit page</h1>
 	<table>
-	<form method="post"action="/delete" 
-	th:object="${formModel}">
-	<input type="hidden" name = "id" th:value = "*{id}" />
-	<tr><td><p th:text="|名前: *{name}|"><p></td></tr>
-	<tr><td><p th:text="|年齢: *{age}|"><p></td></tr>
-		<tr><td><p th:text="{memo}"></p></td></tr>
-	<tr><td><input type = "submit" value="delete" /></td></tr>
+	<form method="post" action="/admin/administrator/delete" th:object="${formModel}">
+	<input type="hidden" name="id" th:value="*{id}" />
+	<tr><td><p th:text="|ログインID: *{loginId}|"><p></td></tr>
+	<tr><td><input type = "submit" value="削除" /></td></tr>
 	</form>
 	</table>
 </body>
 </html>
--->

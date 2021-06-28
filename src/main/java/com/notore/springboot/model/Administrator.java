@@ -1,5 +1,7 @@
 package com.notore.springboot.model;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,42 +11,67 @@ import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
-
+/**
+ * 管理者情報のエンティティクラス
+ */
 @Entity
 @Table(name="administrator", catalog="notore", schema="notore")
 public class Administrator {
 	
+	/**
+	 * IDの定義
+	 */
 	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 //	@NotNull
 	private Long id;
 	
+	/**
+	 * ログインIDの定義
+	 */
 	@Column(name="login_id")
 //	@NotEmpty
 	@Min(0)
 	@Max(10)
-	public String login_id;
+	private String loginId;
 	
+	/**
+	 * 作成者IDの定義
+	 */
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="creater_id")
+	@Column(name="createrId")
 //	@NotNull
-	public Long creater_id;
+	private Long createrId;
 	
+	/**
+	 * 作成日時の定義
+	 */
 	@Column
 //	@NotEmpty
-	public String create_date;
+	private LocalDateTime createDate;
 	
+	/**
+	 * 更新者IDの定義
+	 */
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column
 //	@NotNull
-	public Long updater_id;
+	private Long updaterId;
 	
+	/**
+	 * 更新日時の定義
+	 */
 	@Column
 //	@NotEmpty
-	public String update_date;
+	private LocalDateTime updateDate;
 	
+	
+	/**
+	 * IDのsetter,getter
+	 * 
+	 * @return
+	 */
 	public Long getId() {
 		
 		return id;
@@ -52,68 +79,93 @@ public class Administrator {
 	}
 	
 	public void setId(Long id) {
-	
+		
 		this.id = id;
 		
 	}
 	
+	/**
+	 * ログインIDのsetter,getter
+	 * 
+	 * @return
+	 */
 	public String getLoginId() {
 	
-		return login_id;
+		return loginId;
 		
 	}
 	
-	public void setLoginId(String login_id) {
+	public void setLoginId(String loginId) {
 	
-		this.login_id = login_id;
+		this.loginId = loginId;
 		
 	}
 	
+	/**
+	 * 作成者IDのsetter,getter
+	 * 
+	 * @return
+	 */
 	public Long getCreaterId() {
 		
-		return creater_id;
+		return createrId;
 		
 	}
 	
-	public void setCreaterId(Long creater_id) {
+	public void setCreaterId(Long createrId) {
 	
-		this.creater_id = creater_id;
+		this.createrId = createrId;
 		
 	}
 	
-	public String getCreateDate() {
+	/**
+	 * 作成日時のsetter,getter
+	 * 
+	 * @return
+	 */
+	public LocalDateTime getCreateDate() {
 		
-		return create_date;
+		return createDate;
 		
 	}
 	
-	public void setCreateDate(String create_date) {
+	public void setCreateDate(LocalDateTime date) {
 	
-		this.create_date = create_date;
+		this.createDate = date;
 		
 	}
 	
+	/**
+	 * 更新者IDのsetter,getter
+	 * 
+	 * @return
+	 */
 	public Long getUpdaterId() {
 		
-		return updater_id;
+		return updaterId;
 		
 	}
 	
-	public void setUpdaterId(Long updater_id) {
+	public void setUpdaterId(Long updaterId) {
 	
-		this.updater_id = updater_id;
+		this.updaterId = updaterId;
 		
 	}
 	
-	public String getUpdateDate() {
+	/**
+	 * 更新日時のsetter,getter
+	 * 
+	 * @return
+	 */
+	public LocalDateTime getUpdateDate() {
 		
-		return update_date;
+		return updateDate;
 		
 	}
 	
-	public void setUpdateDate(String update_date) {
+	public void setUpdateDate(LocalDateTime updateDate) {
 	
-		this.update_date = update_date;
+		this.updateDate = updateDate;
 		
 	}
 	

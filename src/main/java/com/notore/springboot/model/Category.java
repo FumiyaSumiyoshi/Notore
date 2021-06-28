@@ -1,5 +1,172 @@
 package com.notore.springboot.model;
 
-public class Category {
+import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
+/**
+ * カテゴリ情報のエンティティクラス
+ */
+@Entity
+@Table(name="category", catalog="notore", schema="notore")
+public class Category {
+	
+	/**
+	 * IDの定義
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
+//	@NotNull
+	private Long id;
+	
+	/**
+	 * カテゴリの定義
+	 */
+	@Column(name="category")
+//	@NotEmpty
+	@Min(0)
+	@Max(10)
+	private String category;
+	
+	/**
+	 * 作成者IDの定義
+	 */
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="createrId")
+//	@NotNull
+	private Long createrId;
+	
+	/**
+	 * 作成日時の定義
+	 */
+	@Column
+//	@NotEmpty
+	private Date createDate;
+	
+	/**
+	 * 更新者IDの定義
+	 */
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+//	@NotNull
+	private Long updaterId;
+	
+	/**
+	 * 更新日時の定義
+	 */
+	@Column
+//	@NotEmpty
+	private Date updateDate;
+	
+	
+	/**
+	 * IDのsetter,getter
+	 * 
+	 * @return
+	 */
+	public Long getId() {
+		
+		return id;
+		
+	}
+	
+	public void setId(Long id) {
+	
+		this.id = id;
+		
+	}
+	
+	/**
+	 * カテゴリのsetter,getter
+	 * 
+	 * @return
+	 */
+	public String getCategory() {
+	
+		return category;
+		
+	}
+	
+	public void setCateory(String category) {
+	
+		this.category = category;
+		
+	}
+	
+	/**
+	 * 作成者IDのsetter,getter
+	 * 
+	 * @return
+	 */
+	public Long getCreaterId() {
+		
+		return createrId;
+		
+	}
+	
+	public void setCreaterId(Long createrId) {
+	
+		this.createrId = createrId;
+		
+	}
+	
+	/**
+	 * 作成日時のsetter,getter
+	 * 
+	 * @return
+	 */
+	public Date getCreateDate() {
+		
+		return createDate;
+		
+	}
+	
+	public void setCreateDate(Date createDate) {
+	
+		this.createDate = createDate;
+		
+	}
+	
+	/**
+	 * 更新者IDのsetter,getter
+	 * 
+	 * @return
+	 */
+	public Long getUpdaterId() {
+		
+		return updaterId;
+		
+	}
+	
+	public void setUpdaterId(Long updaterId) {
+	
+		this.updaterId = updaterId;
+		
+	}
+	
+	/**
+	 * 更新日時のsetter,getter
+	 * 
+	 * @return
+	 */
+	public Date getUpdateDate() {
+		
+		return updateDate;
+		
+	}
+	
+	public void setUpdateDate(Date updateDate) {
+	
+		this.updateDate = updateDate;
+		
+	}
+	
 }
