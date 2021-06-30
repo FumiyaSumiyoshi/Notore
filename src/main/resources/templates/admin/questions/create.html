@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>top page</title>
+	<meta http-equiv="Content-Type"
+		content="text/html; charset=UTF-8" />
+	<style>
+	h1 { font-size:18pt; font-weight:bold; color:gray; }
+	body { font-size:13pt; color:gray; margin:5px 25px; }
+	tr { margin:5px; }
+	th { padding:5px; color:white; background:darkgray }
+	td { padding:5px; color:black; background:#e0e0ff; }
+	</style>
+</head>
+<body>
+        <table>
+        	<form method="post" action="save" th:object="${formModel}">
+            <tr>
+            	<td><label for="questionContent">問題文</label></td>
+            	<td><input type="text" name="questionContent" th:value="*{questionContent}"/></td>
+            </tr>
+            <tr>
+            	<td><label for="categoryId">カテゴリID</label></td>
+            	<td><input type="text" name="categoryId" th:value="*{categoryId}"/></td>
+            </tr>
+            <tr>
+            	<td><label for="levelId">レベルID</label></td>
+            	<td><input type="text" name="levelId" th:value="*{levelId}"/></td>
+            </tr>
+            <tr>
+            	<td><label for="answerForm">回答形式</label></td>
+            	<td><input type="text" name="answerForm" th:value="*{answerForm}"/></td>
+            </tr>
+            <tr>
+            	<td><label for="questionPoint">配点</label></td>
+            	<td><input type="text" name="questionPoint" th:value="*{questionPoint}"/></td>
+            </tr>
+            <tr>
+            	<td><label for="exactAnswer">解答</label></td>
+            	<td><input type="text" name="exactAnswer" th:value="*{exactAnswer}"/></td>
+            </tr>
+            <tr>
+            	<td><label for="answerManual">解説</label></td>
+            	<td><input type="text" name="answerManual" th:value="*{answerManual}"/></td>
+            </tr>
+            <tr>
+            	<td colspan="2" style="text-align: center"><input type="submit" /></td>
+            </tr>
+            </form>
+        </table>
+  </body>
+</html>
