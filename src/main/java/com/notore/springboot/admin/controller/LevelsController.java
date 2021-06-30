@@ -91,7 +91,7 @@ public class LevelsController {
 		return new ModelAndView("redirect:/admin/levels");
 		
 	}
-	
+	//////////////////////////////////////////////////////////////テスト
 	/**
 	 * 登録済みレベル情報の削除
 	 * 
