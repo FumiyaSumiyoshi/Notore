@@ -1,0 +1,19 @@
+.button {
+	display       : inline-block;
+	border-radius : 5%;
+	font-size     : 9pt;
+	text-align    : center;
+	cursor        : pointer;
+	padding       : 6px 6px;
+	background    : #000066;
+	color         : #ffffff;
+	line-height   : 1em;
+	transition    : .3s;
+	border        : 2px solid #000066;
+}
+	
+.button:hover {
+	box-shadow    : none;
+	color         : #000066;
+	background    : #ffffff;
+}

@@ -1,0 +1,56 @@
+<div layout:decorator="layout/layout">
+    <th:block layout:fragment="layout-content">
+        <h1>< 検索 ></h1>
+        <select name="カテゴリ">
+            <p>カテゴリ</p>
+            <option>国語</option>
+            <option>数学</option>
+            <option>社会</option>
+            <option>理科</option>
+            <option>英語</option>
+            <option>雑学</option>
+        </select>
+        <select name="レベル">
+            <p>レベル</p>
+            <option>やさしい</option>
+            <option>ふつう</option>
+            <option>むずかしい</option>
+        </select>
+        <select name="回答形式">
+            <p>回答形式</p>
+            <option>単一入力</option>
+            <option>複数入力</option>
+            <option>単一選択</option>
+            <option>複数選択</option>
+        </select>
+        <h1>ユーザー管理</h1>
+        <div>
+        	<button id="create_btn5">新規作成</button>
+        </div>
+        <table class="table" border="1">
+            <tr>
+            <td>ID</td>
+            <td>ログインID</td>
+            <td>回答者ID</td>
+            <td>回答</td>
+            <td>回答日時</td>
+            <td>削除</td>
+            </tr>
+        </table>
+        <table>
+            <tr th:each="user : ${userlist}" th:object="${user}">
+                <td th:text="*{id}"></td>
+                <td th:text="*{loginId}"></td>
+                <td th:text="*{nameId}"></td>
+                <td th:text="*{userAnswer}"></td>
+                <td th:text="*{answerDate}"></td>
+                <td>
+                	<a class="button" href="user/edit.html" th:href="@{user/edit/__*{id}__}">編集</a>
+            	</td>
+                <td>
+                	<a class="button" href="user/delete.html" th:href="@{user/delete/__*{id}__}">削除</a>
+            	</td>
+            </tr>
+        </table>
+    </th:block>
+</div>
