@@ -8,10 +8,38 @@ lang="ja">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
-        <link href="./admin/lib/css/bootstrap.css" rel="stylesheet">
-        <link href="./admin/css/admin.css" rel="stylesheet">
-        <link href="./admin/origin/forbody.css" rel="stylesheet">
+        <link href="./lib/css/bootstrap.css" rel="stylesheet">
+        <link href="./css/admin.css" rel="stylesheet">
+        <link href="./origin/forbody.css" rel="stylesheet">
         <title></title>
+        
+        <style>
+			body { font-size:13pt; color:gray; margin:5px 25px; }
+			tr { margin:5px; }
+			th { padding:5px; color:white; background:darkgray; }
+			td { padding:5px; color:black; background:#e0e0ff; }
+			
+			.button {
+			  display       : inline-block;
+			  border-radius : 5%;
+			  font-size     : 9pt;
+			  text-align    : center;
+			  cursor        : pointer;
+			  padding       : 6px 6px;
+			  background    : #000066;
+			  color         : #ffffff;
+			  line-height   : 1em;
+			  transition    : .3s;
+			  border        : 2px solid #000066;
+			}
+			.button:hover {
+			  box-shadow    : none;
+			  color         : #000066;
+			  background    : #ffffff;
+			}
+			
+		</style>
+        
     </head>
     <body>
     	<div th:replace="layout/header :: header">&nbsp;</div>
@@ -23,8 +51,12 @@ lang="ja">
 				</th:block>
 			</div>
 		</div>
-		<script type="text/javascript" src="./admin/lib/js/bootstrap.js"></script>
-		<script type="text/javascript" src="./admin/lib/js/jquery-3.6.0.js"></script>
-		<script type="text/javascript" src="./admin/js/admin.js"></script>
+		<script type="text/javascript" src="./lib/js/bootstrap.js"></script>
+		<script type="text/javascript" src="./lib/js/jquery-3.6.0.js"></script>
+		<script type="text/javascript" src="./js/admin_administrator.js"></script>
+		<script type="text/javascript" src="./js/admin_categories.js"></script>
+		<script type="text/javascript" src="./js/admin_levels.js"></script>
+		<script type="text/javascript" src="./js/admin_questions.js"></script>
+		<script type="text/javascript" src="./js/admin_user.js"></script>
     </body>
 </html>
