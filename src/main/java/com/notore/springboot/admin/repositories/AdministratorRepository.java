@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import com.notore.springboot.model.Administrator;
 
-
 @Repository
 public interface AdministratorRepository extends JpaRepository<Administrator, Long> {
 	

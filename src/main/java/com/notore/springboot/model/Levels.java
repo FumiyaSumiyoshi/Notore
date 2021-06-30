@@ -1,6 +1,6 @@
 package com.notore.springboot.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,11 +12,11 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
 /**
- * カテゴリ情報のエンティティクラス
+ * レベル情報のエンティティクラス
  */
 @Entity
-@Table(name="category", catalog="notore", schema="notore")
-public class Category {
+@Table(name="levels", catalog="notore", schema="notore")
+public class Levels {
 	
 	/**
 	 * IDの定義
@@ -28,13 +28,13 @@ public class Category {
 	private Long id;
 	
 	/**
-	 * カテゴリの定義
+	 * レベルの定義
 	 */
-	@Column(name="category")
+	@Column(name="levelStep")
 //	@NotEmpty
 	@Min(0)
 	@Max(10)
-	private String category;
+	private String levelStep;
 	
 	/**
 	 * 作成者IDの定義
@@ -49,7 +49,7 @@ public class Category {
 	 */
 	@Column
 //	@NotEmpty
-	private Date createDate;
+	private LocalDateTime createDate;
 	
 	/**
 	 * 更新者IDの定義
@@ -64,7 +64,7 @@ public class Category {
 	 */
 	@Column
 //	@NotEmpty
-	private Date updateDate;
+	private LocalDateTime updateDate;
 	
 	
 	/**
@@ -89,15 +89,15 @@ public class Category {
 	 * 
 	 * @return
 	 */
-	public String getCategory() {
+	public String getLevelStep() {
 	
-		return category;
+		return levelStep;
 		
 	}
 	
-	public void setCateory(String category) {
+	public void setLevelStep(String levelStep) {
 	
-		this.category = category;
+		this.levelStep = levelStep;
 		
 	}
 	
@@ -123,15 +123,15 @@ public class Category {
 	 * 
 	 * @return
 	 */
-	public Date getCreateDate() {
+	public LocalDateTime getCreateDate() {
 		
 		return createDate;
 		
 	}
 	
-	public void setCreateDate(Date createDate) {
+	public void setCreateDate(LocalDateTime createdate) {
 	
-		this.createDate = createDate;
+		this.createDate = createdate;
 		
 	}
 	
@@ -157,13 +157,13 @@ public class Category {
 	 * 
 	 * @return
 	 */
-	public Date getUpdateDate() {
+	public LocalDateTime getUpdateDate() {
 		
 		return updateDate;
 		
 	}
 	
-	public void setUpdateDate(Date updateDate) {
+	public void setUpdateDate(LocalDateTime updateDate) {
 	
 		this.updateDate = updateDate;
 		

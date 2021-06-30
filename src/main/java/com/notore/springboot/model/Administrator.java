@@ -8,8 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 
 /**
  * 管理者情報のエンティティクラス
@@ -32,8 +30,6 @@ public class Administrator {
 	 */
 	@Column(name="login_id")
 //	@NotEmpty
-	@Min(0)
-	@Max(10)
 	private String loginId;
 	
 	/**

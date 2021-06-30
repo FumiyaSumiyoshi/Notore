@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>毎日脳トレ</title>
+        <link rel="stylesheet" href="./css2/bootstrap.min.css">
+        <link rel="stylesheet" href="./origin2/origin1.css">
+        <link rel="stylesheet" href="./cssPersonal/button.css">
+    </head>
+    <body>
+        <div class="title1" style="text-align:center">↓レベルを選んでね</div>
+        
+        
+            <form style="text-align:center" th:each="levels : ${levelslist}" th:object="${levels}">
+                <div  th:text="*{levelStep}"></div>
+                <div>
+                	<a class="button" href="start.html" th:href="@{start/__*{id}__}">この問題をとく</a>
+            	</div>
+            </form>
+        
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="./js2/bootstrap.min.js"></script>
+    </body>
+</html>

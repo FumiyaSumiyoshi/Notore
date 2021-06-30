@@ -1,6 +1,6 @@
 package com.notore.springboot.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,7 +30,7 @@ public class User {
 	/**
 	 * ログインIDの定義
 	 */
-	@Column(name="login_id")
+	@Column(name="loginId")
 //	@NotEmpty
 	@Min(0)
 	@Max(10)
@@ -40,23 +40,23 @@ public class User {
 	 * 回答者IDの定義
 	 */
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="answerId")
+	@Column(name="nameId")
 //	@NotNull
-	private Long answerId;
+	private Long nameId;
 	
 	/**
 	 * 回答の定義
 	 */
 	@Column
 //	@NotNull
-	private String answer;
+	private String userAnswer;
 	
 	/**
 	 * 回答日時の定義
 	 */
 	@Column
 //	@NotEmpty
-	private Date answerDate;
+	private LocalDateTime answerDate;
 	
 	
 	/**
@@ -98,15 +98,15 @@ public class User {
 	 * 
 	 * @return
 	 */
-	public Long getAnswerId() {
+	public Long getNameId() {
 		
-		return answerId;
+		return nameId;
 		
 	}
 	
-	public void setAnswerId(Long answerId) {
+	public void setAnswerId(Long nameId) {
 	
-		this.answerId = answerId;
+		this.nameId = nameId;
 		
 	}
 	
@@ -115,15 +115,15 @@ public class User {
 	 * 
 	 * @return
 	 */
-	public String getAnswer() {
+	public String getUserAnswer() {
 		
-		return answer;
+		return userAnswer;
 		
 	}
 	
-	public void setAnswer(String answer) {
+	public void setUserAnswer(String userAnswer) {
 	
-		this.answer = answer;
+		this.userAnswer = userAnswer;
 		
 	}
 	
@@ -132,13 +132,13 @@ public class User {
 	 * 
 	 * @return
 	 */
-	public Date getAnswerDate() {
+	public LocalDateTime getAnswerDate() {
 		
 		return answerDate;
 		
 	}
 	
-	public void setAnswerDate(Date answerDate) {
+	public void setAnswerDate(LocalDateTime answerDate) {
 	
 		this.answerDate = answerDate;
 		

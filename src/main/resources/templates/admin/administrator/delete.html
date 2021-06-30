@@ -13,11 +13,15 @@
 <body>
 	<h1 th:text="${title}">Edit page</h1>
 	<table>
-	<form method="post" action="/admin/administrator/delete" th:object="${formModel}">
-	<input type="hidden" name="id" th:value="*{id}" />
-	<tr><td><p th:text="|ログインID: *{loginId}|"><p></td></tr>
-	<tr><td><input type = "submit" value="削除" /></td></tr>
-	</form>
+		<form method="post" action="/admin/administrator/delete" th:object="${formModel}">
+		<input type="hidden" name="id" th:value="*{id}" />
+		<tr>
+			<td><p th:text="|ログインID: *{loginId}|"><p></td>
+		</tr>
+		<tr>
+			<td><input type = "submit" value="削除" /></td>
+		</tr>
+		</form>
 	</table>
 </body>
 </html>
