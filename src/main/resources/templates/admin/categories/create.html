@@ -11,18 +11,16 @@
 	th { padding:5px; color:white; background:darkgray }
 	td { padding:5px; color:black; background:#e0e0ff; }
 	</style>
+	<link rel="stylesheet" type="text/css" href="../../../front/cssPersonal/login.css" media="all" />
 </head>
-<body>
-        <table>
-        	<form method="post" action="save" th:object="${formModel}">
-            <tr>
-            	<td><label for="categories">カテゴリ</label></td>
-            	<td><input type="text" name="categoryName" th:value="*{categoryName}"/></td>
-            </tr>
-            <tr>
-            	<td colspan="2" style="text-align: center"><input type="submit" /></td>
-            </tr>
-            </form>
-        </table>
+	<body>
+		<div id="form">
+		    <p class="form-title">カテゴリ</p>
+		    <form method="post" action="save" th:object="${formModel}">
+		        <p>カテゴリ</p>
+		        <p class="mail"><input type="text" name="categoryName" th:value="*{categoryName}"/></p>
+		        <p class="submit"><input type="submit" value="完了" /></p>
+		    </form>
+		</div>
   </body>
 </html>

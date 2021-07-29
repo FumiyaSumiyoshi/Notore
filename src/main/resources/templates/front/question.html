@@ -1,40 +1,167 @@
 <!DOCTYPE html>
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>毎日脳トレ</title>
-        <link rel="stylesheet" href="./css/bootstrap.min.css">
-        <link rel="stylesheet" href="./origin2/question.css">
-    </head>
-    <body>
-    
-        <h1 class="questionN"> n 問目</nav></h1>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>毎日脳トレ</title>
+<link rel="stylesheet" href="../../../css2/bootstrap.min.css">
+<link rel="stylesheet" href="../../../origin2/question.css">
+<link rel="stylesheet" href="../../../cssPersonal/button.css">
+<style>
+body {
+	background-image: url("../../../back/10.jpg");
+	background-size: auto;
+}
 
-        <div class="box_1">
-          <div class="title2" style="text-align:center"><button type="button" onclick="location.href='chooseLevel.html'">BACK</button></div>
-        </div>
-          
-          
-        <div class="box_2">
-          <div style="border: black double 6px; border-radius:15px; font-size: 100%; padding: 15px;"></div>
-        </div>
-          
-          
-        <div class="box_3">
-          <div class="title2" style="text-align:center"><button type="button" onclick="location.href='last_page.html'">NEXT</button></div>
-        </div>
-        
-        
-        <form style="text-align:center" method="post" action="/front/question" th:object="${formModel}">
-			<input type="hidden" name="id" th:value="*{id}" />
-				<div><label for="questionContent">問題文</label></div>
-				<div name="questionContent" th:text="*{questionContent}"></div>
-				<input type = "submit" value="START" />
-		</form>
-        
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="./js2/bootstrap.min.js"></script>
-    </body>
+.background {
+	background-color: white;
+}
+</style>
+</head>
+<body>
+	<br>
+	<h1 style="text-align: center" class="questionN">
+		<div th:object="${nBan}">
+			<div th:text="第 +${nBan}+ 問"></div>
+		</div>
+	</h1>
+	<br>
+	<div style="text-align: center">
+		<div class="box_1">
+			<div method="post" th:object="${formModel}">
+				<div>
+					<a class="button" href="#" onclick="history.back(); return false;">BACK</a>
+				</div>
+			</div>
+		</div>
+		<div class="box_2" style="color: black;">
+			<div class="background"
+				style="border: black double 6px; border-radius: 15px; font-size: 100%; font-color: black; padding: 15px; width: 100px">
+				<div style="text-align: center" method="post"
+					action="/front/question" th:object="${formModel}">
+					<input type="hidden" name="id" th:value="*{id}" />
+					<div name="questionContent" th:text="*{questionContent}"></div>
+					</br> </br>
+				</div>
+
+			</div>
+		</div>
+		<div class="box_3">
+			<div th:object="${goukei}">
+				<th:block th:if="${goukei} != '100'">
+					<div th:object="${formModel2}">
+						<div>
+							<a id="btn" class="button" href="question.html"
+								th:href="@{__*{id}__}">NEXT</a>
+						</div>
+					</div>
+				</th:block>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div style="text-align: center" th:object="${answerForm}">
+		<th:block th:if="*{answerForm} == '単一入力'">
+			<form method="post" action="/front/question" th:object="${test}">
+				<div>
+					<label for="userAnswer">回答</label>
+				</div>
+				<div>
+					<input type="text" id="inputText" name="userAnswer"
+						th:value="*{userAnswer}" />
+				</div>
+			</form>
+		</th:block>
+	</div>
+	<div style="text-align: center" th:object="${answerForm}">
+		<th:block th:if="*{answerForm} == '単一選択'">
+			<form method="post" action="/front/question" th:object="${test}">
+				<div>
+					<label for="userAnswer">回答</label>
+				</div>
+				<div>
+					<input type="radio" id="inputText" name="userAnswer"
+						th:value="テスト1" />テスト1
+				</div>
+				<div>
+					<input type="radio" id="inputText" name="userAnswer"
+						th:value="*{userAnswer}" />テスト2
+				</div>
+				<div>
+					<input type="radio" id="inputText" name="userAnswer"
+						th:value="*{userAnswer}" />テスト3
+				</div>
+			</form>
+		</th:block>
+	</div>
+	<div style="text-align: center" th:object="${answerForm}">
+		<th:block th:if="*{answerForm} == '複数選択'">
+			<form method="post" action="/front/question" th:object="${test}">
+				<div>
+					<label for="userAnswer">回答</label>
+				</div>
+				
+				<div th:object="${choices}">
+					<input type="checkbox" id="inputText" name="userAnswer"
+						th:text="*{choicesOne}" th:value=1>
+				</div>
+				<div th:object="${choices}">
+					<input type="checkbox" id="inputText" name="userAnswer"
+						th:text="*{choicesTwo}" th:value=2>
+				</div>
+				<div th:object="${choices}">
+					<input type="checkbox" id="inputText" name="userAnswer"
+						th:text="*{choicesThree}" th:value=3>
+				</div>
+				<div th:object="${choices}">
+					<input type="checkbox" id="inputText" name="userAnswer"
+						th:text="*{choicesFour}" th:value=4>
+				</div>
+				-->
+				<!--  
+				<select id="inputText" name="userAnswer" size="4" multiple="multiple">
+				<div th:object="${choices}">
+					<option th:value=1 th:text="*{choicesOne}"></option>
+					<option th:value=2 th:text="*{choicesTwo}"></option>
+					<option th:value=3 th:text="*{choicesThree}"></option>
+					<option th:value=4 th:text="*{choicesFour}"></option>
+				</div>
+				</select>
+				-->
+			</form>
+		</th:block>
+	</div>
+	<br>
+	<br>
+	<!-- formを消せば解決するのでは -->
+	<!--  
+	<form method="post" action="/front/question" th:object="${test}">
+	-->
+	<div th:object="${test}">
+		<div th:object="${goukei}">
+			<th:block th:if="${goukei} == '100'">
+				<div>
+					<div style="text-align: center">
+						<input id="lastBtn" type="submit" value="結果発表へ" />
+					</div>
+				</div>
+			</th:block>
+		</div>
+	</div>
+	<!--  
+	</form>
+	-->
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="../../../js2/bootstrap.min.js"></script>
+	<script src="../../../jsPersonal/saveQuestionOne.js"></script>
+	<script src="../../../jsPersonal/saveQuestionChoice.js"></script>
+	<script src="../../../jsPersonal/saveQuestionManyChoice.js"></script>
+	<script src="../../../jsPersonal/saveQuestionLast.js"></script>
+</body>
 </html>

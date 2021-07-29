@@ -1,70 +1,98 @@
 <div layout:decorator="layout/layout">
-    <th:block layout:fragment="layout-content">
-        <h1>< 検索 ></h1>
-        <select name="カテゴリ">
-            <p>カテゴリ</p>
-            <option>国語</option>
-            <option>数学</option>
-            <option>社会</option>
-            <option>理科</option>
-            <option>英語</option>
-            <option>雑学</option>
-        </select>
-        <select name="レベル">
-            <p>レベル</p>
-            <option>やさしい</option>
-            <option>ふつう</option>
-            <option>むずかしい</option>
-        </select>
-        <select name="回答形式">
-            <p>回答形式</p>
-            <option>単一入力</option>
-            <option>複数入力</option>
-            <option>単一選択</option>
-            <option>複数選択</option>
-        </select>
-        <h1>問題管理</h1>
-        <div>
-        	<button id="create_btn4">新規作成</button>
-        </div>
-        <table class="table" border="1">
-            <tr>
-            <td>ID</td>  
-            <td>問題文</td>
-            <td>カテゴリID</td>
-            <td>レベルID</td>
-            <td>回答形式</td>
-            <td>配点</td>
-            <td>解答</td>
-            <td>解説</td>
-            <td>作成者ID</td>
-            <td>作成日時</td>
-            <td>更新者ID</td>
-            <td>更新日時</td>
-            <td>削除</td>
-            </tr>
-        </table>
-        <table>
-            <tr th:each="questions : ${questionslist}" th:object="${questions}">
-                <td th:text="*{id}"></td>
-                <td th:text="*{questionContent}"></td>
-                <td th:text="*{categoryId}"></td>
-                <td th:text="*{levelId}"></td>
-                <td th:text="*{answerForm}"></td>
-                <td th:text="*{questionPoint}"></td>
-                <td th:text="*{exactAnswer}"></td>
-                <td th:text="*{answerManual}"></td>
-                <td th:text="*{createrId}"></td>
-                <td th:text="*{createDate}"></td>
-                <td th:text="*{updaterId}"></td>
-                <td th:text="*{updateDate}"></td>
-                <td>
-                	<a class="button" href="questions/edit.html" th:href="@{questions/edit/__*{id}__}">編集</a>
-            	</td>
-                <td>
-                	<a class="button" href="questions/delete.html" th:href="@{questions/delete/__*{id}__}">削除</a>
-            	</td>
-            </tr>
-        </table>
-    </th:block>
+	<th:block layout:fragment="layout-content">
+		<h1>問題管理</h1>
+		<h3 th:text="${msg}"></h3>
+        <p th:text="${msg2}"></p>
+        <!--入力した値をth:object="${formModel}"に詰める  -->
+        <!--th:valueで初期値が入るようにする  -->
+        <form method="post" th:action="@{/admin/questions}" th:object="${formModel}">
+            <label>カテゴリ:</label>
+            <select type="text" id="categoryIdSelect" name="categoryId" th:value=*{categoryId} >
+				<option value="">カテゴリの選択</option>
+				<form style="text-align:center" th:each="category : ${categorylist}" th:object="${category}">
+                	<option th:value=*{id}><div th:text="*{categoryName}"></div></option>
+            	</form>
+			</select>
+            <label>レベル:</label>
+            <select type="text" id="levelIdSelect" name="levelId" th:value=*{levelId} >
+				<option value="">レベルの選択</option>
+				<form style="text-align:center" th:each="levels : ${levelslist}" th:object="${levels}">
+                	<option th:value=*{id}><div th:text="*{levelStep}"></div></option>
+            	</form>
+			</select>
+            <label>回答形式:</label>
+            <select type="text" id="answerFormSelect" name="answerForm" th:value="${formModel.answerForm}">
+            	<option value=''>回答形式の選択</option>
+            	<form>
+					<option value="単一入力">単一入力</option>
+					<option value="単一選択">単一選択</option>
+					<option value="複数選択">複数選択</option>
+				</form>
+			</select>
+            <input type="submit" value="検索">
+        </form>
+		<div>
+			<button id="create_btn4">新規作成</button>
+		</div>
+		<table border="1" bordercolor="navy">
+			<tr>
+				<td>ID</td>
+				<td>問題文</td>
+				<td>カテゴリID</td>
+				<td>レベルID</td>
+				<td>回答形式</td>
+				<td>配点</td>
+				<td>解答</td>
+				<td>解説</td>
+				<td>作成者ID</td>
+				<td>作成日時</td>
+				<td>更新者ID</td>
+				<td>更新日時</td>
+				<td>編集</td>
+				<td>削除</td>
+			</tr>
+			<tr th:each="questions : ${questionslist}" th:object="${questions}"> 
+				<td th:text="*{id}"></td>
+				<td th:text="*{questionContent}"></td>
+				<td th:text="*{categoryId}"></td>
+				<td th:text="*{levelId}"></td>
+				<td th:text="*{answerForm}"></td>
+				<td th:text="*{questionPoint}"></td>
+				<td th:text="*{exactAnswer}"></td>
+				<td th:text="*{answerManual}"></td>
+				<td th:text="*{createrId}"></td>
+				<td th:text="*{createDate}"></td>
+				<td th:text="*{updaterId}"></td>
+				<td th:text="*{updateDate}"></td>
+				<td><a class="button" href="questions/edit.html"
+					th:href="@{questions/edit/__*{id}__}">編集</a></td>
+				<td><a class="button" href="questions/delete.html"
+					th:href="@{questions/delete/__*{id}__}">削除</a></td>
+			</tr>
+		</table>
+		<!-- ページネーション部分 -->
+		<div style="text-align: center" th:object="${formModel}">
+		<th:block th:if="*{answerForm} == null">
+		<div>
+			<ul>
+				<li style="display: inline;"><span th:if="${page.first}">&lt;&lt;前</span>
+					<a th:if="${!page.first}"
+					th:href="@{/admin/questions(page = ${page.number} - 1)}">
+						&lt;&lt;前 </a></li>
+				<li th:each="i : ${#numbers.sequence(0, page.totalPages - 1)}"
+					style="display: inline; margin-left: 10px;"><span
+					th:if="${i} == ${page.number}" th:text="${i + 1}">1</span> <a
+					th:if="${i} != ${page.number}"
+					th:href="@{/admin/questions(page = ${i})}"> <span
+						th:text="${i+1}">1</span>
+				</a></li>
+				<li style="display: inline; margin-left: 10px;"><span
+					th:if="${page.last}">次&gt;&gt;</span> <a th:if="${!page.last}"
+					th:href="@{/admin/questions(page = (${page.number} + 1))}">
+						次&gt;&gt; </a></li>
+			</ul>
+		</div>
+		</th:block>
+		</div>
+	</th:block>
 </div>

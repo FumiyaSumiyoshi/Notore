@@ -11,19 +11,19 @@
 	th { padding:5px; color:white; background:darkgray }
 	td { padding:5px; color:black; background:#e0e0ff; }
 	</style>
+	<link rel="stylesheet" type="text/css" href="../../../front/cssPersonal/login.css" media="all" />
 </head>
-<body>
-	<table>
-		<form method="post" action="/admin/administrator/edit" th:object="${formModel}">
-			<input type="hidden" name="id" th:value="*{id}" />
-			<tr>
-				<td><label for="loginId">ログインID</label></td>
-				<td><input type="text" name="loginId" th:value="*{loginId}"/></td>
-			</tr>
-			<tr>
-				<td colspan="2" style="text-align: center"><input type = "submit" value="編集完了" /></td>
-			</tr>
-		</form>
-	</table>
-</body>
+	<body>
+		<div id="form">
+		    <p class="form-title">新規作成</p>
+		    <form method="post" action="/admin/administrator/edit" th:object="${formModel}">
+		    	<input type="hidden" name="id" th:value="*{id}" />
+		        <p>LoginID</p>
+		        <p class="mail"><input type="text" name="loginId" th:value="*{loginId}"/></p>
+		        <p>PASS WORD</p>
+		        <p class="mail"><input type="text" name="passWord" th:value="*{passWord}"/></p>
+		        <p class="submit"><input type="submit" value="完了" /></p>
+		    </form>
+		</div>
+	</body>
 </html>

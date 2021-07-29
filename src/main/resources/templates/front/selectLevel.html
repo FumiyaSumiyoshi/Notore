@@ -1,28 +1,43 @@
 <!DOCTYPE html>
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>毎日脳トレ</title>
-        <link rel="stylesheet" href="./css2/bootstrap.min.css">
-        <link rel="stylesheet" href="./origin2/origin1.css">
-        <link rel="stylesheet" href="./cssPersonal/button.css">
-    </head>
-    <body>
-        <div class="title1" style="text-align:center">↓レベルを選んでね</div>
-        
-        
-            <form style="text-align:center" th:each="levels : ${levelslist}" th:object="${levels}">
-                <div  th:text="*{levelStep}"></div>
-                <div>
-                	<a class="button" href="start.html" th:href="@{start/__*{id}__}">この問題をとく</a>
-            	</div>
-            </form>
-        
-        <!--
-        BranchForFrontへの追加
-        -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="./js2/bootstrap.min.js"></script>
-    </body>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>毎日脳トレ</title>
+<style>
+body {
+	background-image: url("./back/10.jpg");
+	background-size: auto;
+}
+
+.title1 {
+	color: #00BCD4;
+	text-shadow: 2px 2px #fff, 5px 5px rgba(0, 188, 212, 0.4);
+	font-size: 80px;
+}
+
+.level {
+	color: blue;
+	text-shadow: 2px 2px #fff, 5px 5px rgba(0, 188, 212, 0.4);
+	font-size: 40px;
+}
+</style>
+<link rel="stylesheet" href="./css2/bootstrap.min.css">
+<link rel="stylesheet" href="./origin2/origin1.css">
+<link rel="stylesheet" href="./cssPersonal/button.css">
+</head>
+<body>
+	<div class="title1" style="text-align: center">SELECT LEVEL</div>
+	<form style="text-align: center" th:each="levels : ${levelslist}"
+		th:object="${levels}">
+		<div class="level" th:text="*{levelStep}"></div>
+		<div>
+			<a class="button" href="start.html" th:href="@{start/__*{id}__}">この問題をとく</a>
+		</div>
+		<br>
+	</form>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="./js2/bootstrap.min.js"></script>
+</body>
 </html>

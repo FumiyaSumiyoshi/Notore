@@ -7,9 +7,12 @@ import org.springframework.stereotype.Repository;
 
 import com.notore.springboot.model.User;
 
+/**
+ * ユーザー情報管理のためのリポジトリインターフェース
+ */
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-	
+
 	public Optional<User> findById(Long name);
-	
+
 }

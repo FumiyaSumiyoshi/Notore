@@ -7,9 +7,12 @@ import org.springframework.stereotype.Repository;
 
 import com.notore.springboot.model.Levels;
 
+/**
+ * レベル管理のためのリポジトリインターフェース(フロント用)
+ */
 @Repository
-public interface LevelsRepository2 extends JpaRepository<Levels, Long> {
-	
+public interface LevelsRepositoryFront extends JpaRepository<Levels, Long> {
+
 	public Optional<Levels> findById(Long name);
-	
+
 }

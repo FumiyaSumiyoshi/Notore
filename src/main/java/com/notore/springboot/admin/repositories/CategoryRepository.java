@@ -7,9 +7,12 @@ import org.springframework.stereotype.Repository;
 
 import com.notore.springboot.model.Categories;
 
+/**
+ * カテゴリ管理のためのリポジトリインターフェース
+ */
 @Repository
 public interface CategoryRepository extends JpaRepository<Categories, Long> {
-	
+
 	public Optional<Categories> findById(Long name);
-	
+
 }
