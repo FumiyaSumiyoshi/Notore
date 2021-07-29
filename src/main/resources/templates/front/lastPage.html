@@ -1,18 +1,99 @@
 <!DOCTYPE html>
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>毎日脳トレ</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="origin/origin1.css">
-    </head>
-    <body>
-        <h1 style="text-align:center">結果発表!!</h1>
-        <div class="title1" style="text-align:center">おめでとう!!</div>
-        <div class="title2" style="text-align:center"><button type="button" class="btn btn-primary" onclick="location.href='top_page.html'">TOPページにもどる</button></div>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>毎日脳トレ</title>
+<link rel="stylesheet" href="./css2/bootstrap.min.css">
+<link rel="stylesheet" href="./origin2/origin1.css">
+<style>
+body {
+	background-image: url("./back/10.jpg");
+	background-size: auto;
+}
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-    </body>
+.coment {
+	color: blue;
+	text-shadow: 2px 2px #fff, 5px 5px rgba(0, 188, 212, 0.4);
+	font-size: 40px;
+}
+</style>
+</head>
+<body>
+	<br>
+	<br>
+	<br>
+	<h1 style="text-align: center">結果発表!!</h1>
+	
+	<div class="coment" style="text-align: center" th:object="${getPoint}">
+		<div th:text="${getPoint}"></div>
+	</div>
+	
+	<div th:object="${getPoint}">
+		<th:block th:if="${getPoint} == '100'">
+			<div>
+				<div style="text-align: center">
+					<div class="coment" style="text-align: center">おめでとう!!</div>
+				</div>
+			</div>
+		</th:block>
+	</div>
+	<div th:object="${getPoint}">
+		<th:block th:if="${getPoint} == '80'">
+			<div>
+				<div style="text-align: center">
+					<div class="coment" style="text-align: center">優秀!!</div>
+				</div>
+			</div>
+		</th:block>
+	</div>
+	<div th:object="${getPoint}">
+		<th:block th:if="${getPoint} == '60'">
+			<div>
+				<div style="text-align: center">
+					<div class="coment" style="text-align: center">がんばりました!</div>
+				</div>
+			</div>
+		</th:block>
+	</div>
+	<div th:object="${getPoint}">
+		<th:block th:if="${getPoint} == '40'">
+			<div>
+				<div style="text-align: center">
+					<div class="coment" style="text-align: center">まだまだやれる!</div>
+				</div>
+			</div>
+		</th:block>
+	</div>
+	<div th:object="${getPoint}">
+		<th:block th:if="${getPoint} == '20'">
+			<div>
+				<div style="text-align: center">
+					<div class="coment" style="text-align: center">そんな日もある!</div>
+				</div>
+			</div>
+		</th:block>
+	</div>
+	<div th:object="${getPoint}">
+		<th:block th:if="${getPoint} == '0'">
+			<div>
+				<div style="text-align: center">
+					<div class="coment" style="text-align: center">毎日取り組もう!!</div>
+				</div>
+			</div>
+		</th:block>
+	</div>
+	<div class="title2" style="text-align: center">
+		<button type="button" id="change_btn2" class="btn btn-primary">TOPページにもどる</button>
+	</div>
+
+	<br>
+	<br>
+	<br>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="./js2/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./jsPersonal/frontLast.js"></script>
+	<script type="text/javascript" src="./jsPersonal/frontComent.js"></script>
+</body>
 </html>

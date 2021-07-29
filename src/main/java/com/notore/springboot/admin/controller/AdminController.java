@@ -15,29 +15,29 @@ import com.notore.springboot.admin.service.AdminService;
 import com.notore.springboot.model.Administrator;
 
 /**
- * 問題一覧のコントローラー
+ * 管理者情報のコントローラー
  */
 @Controller
 @RequestMapping("admin/administrator")
 public class AdminController {
-	
+
 	@Autowired
 	AdminService service;
-	
+
 	/**
-	 * 問題一覧(TOP)画面の呼び出し
+	 * 管理者情報画面の呼び出し
 	 * 
 	 * @param model
 	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(Model model) {
-		
+
 		model.addAttribute("adminlist", service.findAll());
 		return "admin/administrator/list";
-		
+
 	}
-	
+
 	/**
 	 * 新規管理者の登録
 	 * 
@@ -47,23 +47,26 @@ public class AdminController {
 	 */
 	@RequestMapping(value = "create", method = RequestMethod.GET)
 	public ModelAndView create(@ModelAttribute("formModel") Administrator administrator, ModelAndView mav) {
-		
-		mav.setViewName("admin/administrator/create");	
+
+		mav.setViewName("admin/administrator/create");
+
 		Iterable<Administrator> list = service.findAll();
 		mav.addObject("datalist", list);
+
 		return mav;
-		
+
 	}
-	
+
 	@RequestMapping(value = "save", method = RequestMethod.POST)
-	@Transactional(readOnly=false)
+	@Transactional(readOnly = false)
 	public ModelAndView save(@ModelAttribute("formModel") Administrator administrator, ModelAndView mav) {
-		
+
 		service.saveAndFlush(administrator);
+
 		return new ModelAndView("redirect:/admin/administrator");
-		
+
 	}
-	
+
 	/**
 	 * 登録済み管理者情報の編集
 	 * 
@@ -74,24 +77,27 @@ public class AdminController {
 	 */
 	@RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
 	public ModelAndView edit(@ModelAttribute Administrator administrator, @PathVariable int id, ModelAndView mav) {
-		
+
 		mav.setViewName("admin/administrator/edit");
+
 		mav.addObject("title", "ID =" + id + "の管理者の情報を編集");
-		Administrator admin = service.findById((long)id).get();
+
+		Administrator admin = service.findById((long) id).get();
 		mav.addObject("formModel", admin);
+
 		return mav;
-		
+
 	}
-	
+
 	@RequestMapping(value = "edit", method = RequestMethod.POST)
-	@Transactional(readOnly=false)
+	@Transactional(readOnly = false)
 	public ModelAndView update(@ModelAttribute Administrator administrator, ModelAndView mav) {
-		
+
 		service.saveAndFlush(administrator);
 		return new ModelAndView("redirect:/admin/administrator");
-		
+
 	}
-	
+
 	/**
 	 * 登録済み管理者情報の削除
 	 * 
@@ -102,22 +108,26 @@ public class AdminController {
 	 */
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public ModelAndView delete(@ModelAttribute Administrator administrator, @PathVariable int id, ModelAndView mav) {
-		
+
 		mav.setViewName("admin/administrator/delete");
+
 		mav.addObject("title", "ID =" + id + "の管理者の情報を削除");
-		Administrator admin = service.findById((long)id).get();
+
+		Administrator admin = service.findById((long) id).get();
 		mav.addObject("formModel", admin);
+
 		return mav;
-		
+
 	}
-	
+
 	@RequestMapping(value = "delete", method = RequestMethod.POST)
-	@Transactional(readOnly=false)
+	@Transactional(readOnly = false)
 	public ModelAndView remove(@ModelAttribute Administrator administrator, ModelAndView mav) {
-		
+
 		service.delete(administrator);
+
 		return new ModelAndView("redirect:/admin/administrator");
-		
+
 	}
-	
+
 }

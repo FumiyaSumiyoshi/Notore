@@ -20,10 +20,10 @@ import com.notore.springboot.model.Levels;
 @Controller
 @RequestMapping("admin/levels")
 public class LevelsController {
-	
+
 	@Autowired
 	LevelsService service;
-	
+
 	/**
 	 * レベル一覧(TOP)画面の呼び出し
 	 * 
@@ -32,12 +32,13 @@ public class LevelsController {
 	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(Model model) {
-		
+
 		model.addAttribute("levelslist", service.findAll());
+
 		return "admin/levels/list";
-		
+
 	}
-	
+
 	/**
 	 * 新規レベルの登録
 	 * 
@@ -47,23 +48,26 @@ public class LevelsController {
 	 */
 	@RequestMapping(value = "create", method = RequestMethod.GET)
 	public ModelAndView create(@ModelAttribute("formModel") Levels levels, ModelAndView mav) {
-		
-		mav.setViewName("admin/levels/create");	
+
+		mav.setViewName("admin/levels/create");
+
 		Iterable<Levels> list = service.findAll();
 		mav.addObject("datalist", list);
+
 		return mav;
-		
+
 	}
-	
+
 	@RequestMapping(value = "save", method = RequestMethod.POST)
-	@Transactional(readOnly=false)
+	@Transactional(readOnly = false)
 	public ModelAndView save(@ModelAttribute("formModel") Levels levels, ModelAndView mav) {
-		
+
 		service.saveAndFlush(levels);
+
 		return new ModelAndView("redirect:/admin/levels");
-		
+
 	}
-	
+
 	/**
 	 * 登録済みレベル情報の編集
 	 * 
@@ -74,24 +78,28 @@ public class LevelsController {
 	 */
 	@RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
 	public ModelAndView edit(@ModelAttribute Levels levels, @PathVariable int id, ModelAndView mav) {
-		
+
 		mav.setViewName("admin/levels/edit");
+
 		mav.addObject("title", "ID =" + id + "の管理者の情報を編集");
-		Levels lev = service.findById((long)id).get();
+		Levels lev = service.findById((long) id).get();
+
 		mav.addObject("formModel", lev);
+
 		return mav;
-		
+
 	}
-	
+
 	@RequestMapping(value = "edit", method = RequestMethod.POST)
-	@Transactional(readOnly=false)
+	@Transactional(readOnly = false)
 	public ModelAndView update(@ModelAttribute Levels levels, ModelAndView mav) {
-		
+
 		service.saveAndFlush(levels);
+
 		return new ModelAndView("redirect:/admin/levels");
-		
+
 	}
-	
+
 	/**
 	 * 登録済みレベル情報の削除
 	 * 
@@ -102,22 +110,26 @@ public class LevelsController {
 	 */
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public ModelAndView delete(@ModelAttribute Levels levels, @PathVariable int id, ModelAndView mav) {
-		
+
 		mav.setViewName("admin/levels/delete");
+
 		mav.addObject("title", "ID =" + id + "の管理者の情報を削除");
-		Levels lev = service.findById((long)id).get();
+
+		Levels lev = service.findById((long) id).get();
 		mav.addObject("formModel", lev);
+
 		return mav;
-		
+
 	}
-	
+
 	@RequestMapping(value = "delete", method = RequestMethod.POST)
-	@Transactional(readOnly=false)
+	@Transactional(readOnly = false)
 	public ModelAndView remove(@ModelAttribute Levels levels, ModelAndView mav) {
-		
+
 		service.delete(levels);
+
 		return new ModelAndView("redirect:/admin/levels");
-		
+
 	}
-	
+
 }

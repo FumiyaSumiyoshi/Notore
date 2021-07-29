@@ -1,24 +1,45 @@
 <!DOCTYPE html>
-
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
         <title>毎日脳トレ</title>
-        <link rel="stylesheet" href="./css2/bootstrap.min.css">
-        <link rel="stylesheet" href="./origin2/origin1.css">
+        <style>
+		body {
+			 background-image:url("../back/10.jpg");
+			 background-size:  auto;
+		}
+		.title1 {
+			color: blue;
+    		text-shadow: 2px 2px #fff, 5px 5px rgba(0, 188, 212, 0.4);
+		    font-size:  60px; 
+		}
+		.level {
+			color: blue;
+			text-shadow: 2px 2px #fff, 5px 5px rgba(0, 188, 212, 0.4);
+		    font-size:  40px; 
+		}
+		</style>
+        <link rel="stylesheet" href="../css2/bootstrap.min.css">
+        <link rel="stylesheet" href="../origin2/origin1.css">
+        <link rel="stylesheet" href="../cssPersonal/button.css">
     </head>
     <body>
-        
-        <form style="text-align:center" method="post" action="/front/start" th:object="${formModel}">
+    	<br>
+    	<br>
+    	<br>
+    	<br>
+    	<div style="text-align:center" method="post" th:object="${thisLevel}">
 			<input type="hidden" name="id" th:value="*{id}" />
-				<div><label for="levelStep">レベル</label></div>
-				<div name="levelStep" th:text="*{levelStep}"></div>
-				<input type = "submit" value="START" />
-		</form>
-
-        
-        
+			<div class="title1"><label for="levelStep">レベル</label></div>
+			<div class="level" name="levelStep" th:text="*{levelStep}"></div>
+		</div>
+		<br>
+		<div style="text-align:center" method="post" th:object="${letQuestion}">
+			<a class="button" href="question.html" th:href="@{question/__*{levelId}__/__*{id}__}">START</a>
+		</div>
+		
+		
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="./js2/bootstrap.min.js"></script>
+        <script src="../js2/bootstrap.min.js"></script>
     </body>
 </html>

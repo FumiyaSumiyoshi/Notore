@@ -11,43 +11,71 @@
 	th { padding:5px; color:white; background:darkgray }
 	td { padding:5px; color:black; background:#e0e0ff; }
 	</style>
+	<link rel="stylesheet" type="text/css" href="../../../front/cssPersonal/login.css" media="all" />
 </head>
-<body>
-	<table>
-		<form method="post" action="/admin/questions/edit" th:object="${formModel}">
-			<input type="hidden" name="id" th:value="*{id}" />
-			<tr>
-            	<td><label for="questionContent">問題文</label></td>
-            	<td><input type="text" name="questionContent" th:value="*{questionContent}"/></td>
-            </tr>
-            <tr>
-            	<td><label for="categoryId">カテゴリID</label></td>
-            	<td><input type="text" name="categoryId" th:value="*{categoryId}"/></td>
-            </tr>
-            <tr>
-            	<td><label for="levelId">レベルID</label></td>
-            	<td><input type="text" name="levelId" th:value="*{levelId}"/></td>
-            </tr>
-            <tr>
-            	<td><label for="answerForm">回答形式</label></td>
-            	<td><input type="text" name="answerForm" th:value="*{answerForm}"/></td>
-            </tr>
-            <tr>
-            	<td><label for="questionPoint">配点</label></td>
-            	<td><input type="text" name="questionPoint" th:value="*{questionPoint}"/></td>
-            </tr>
-            <tr>
-            	<td><label for="exactAnswer">解答</label></td>
-            	<td><input type="text" name="exactAnswer" th:value="*{exactAnswer}"/></td>
-            </tr>
-            <tr>
-            	<td><label for="answerManual">解説</label></td>
-            	<td><input type="text" name="answerManual" th:value="*{answerManual}"/></td>
-            </tr>
-			<tr>
-				<td colspan="2" style="text-align: center"><input type = "submit" value="編集完了" /></td>
-			</tr>
-		</form>
-	</table>
-</body>
+	<body>
+	<div id="form">
+		    <p class="form-title">新規作成</p>
+		    <form method="post" action="/admin/questions/edit" th:object="${formModel}">
+		    <input type="hidden" name="id" th:value="*{id}" />
+		        <p>問題文</p>
+		        <p class="mail"><input type="text" name="questionContent" th:value="*{questionContent}"/></p>
+		        
+		        <p>カテゴリID</p>
+		        <p class="mail">
+		        	<select type="text" name="categoryId" th:value="*{categoryId}" >
+						<option value="">カテゴリの選択</option>
+						<form style="text-align:center" th:each="category : ${categorylist}" th:object="${category}">
+		                	<option th:value="*{id}"><div th:text="*{categoryName}"></div></option>
+		            	</form>
+					</select>
+				</p>
+				
+				<p>レベルID</p>
+		        <p class="mail">
+		        	<select type="text" name="levelId" th:value="*{levelId}" >
+						<option value="">レベルの選択</option>
+						<form style="text-align:center" th:each="levels : ${levelslist}" th:object="${levels}">
+		                	<option th:value="*{id}"><div th:text="*{levelStep}"></div></option>
+		            	</form>
+					</select>
+				</p>
+				
+				<p>回答形式</p>
+		        <p class="mail">
+		        	<select type="text" name="answerForm" th:value="*{answerForm}" >
+						<option value="">回答形式の選択</option>
+						<form>
+							<option value="単一入力">単一入力</option>
+							<option value="単一選択">単一選択</option>
+							<option value="複数選択">複数選択</option>
+		            	</form>
+					</select>
+				</p>
+				
+				<p>配点</p>
+		        <p class="mail">
+		        	<select type="text" name="questionPoint" th:value="*{questionPoint}" >
+						<option value="">得点の選択</option>
+						<form>
+							<option value=5>5点</option>
+							<option value=10>10点</option>
+							<option value=15>15点</option>
+							<option value=20>20点</option>
+							<option value=25>25点</option>
+							<option value=30>30点</option>
+		            	</form>
+					</select>
+				</p>
+				
+				<p>解答</p>
+		        <p class="mail"><input type="text" name="exactAnswer" th:value="*{exactAnswer}"/></p>
+		        
+		        <p>解説</p>
+		        <p class="mail"><input type="text" name="answerManual" th:value="*{answerManual}"/></p>
+		        
+		        <p class="submit"><input type="submit" value="完了" /></p>
+		    </form>
+		</div>
+	</body>
 </html>
